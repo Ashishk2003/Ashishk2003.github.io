@@ -1,1 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashish Kumar — Portfolio</title>
+  <meta name="description" content="Ashish Kumar — Entry-level Software Developer. Cloud, REST APIs, IoT projects. Hyderabad, India." />
+  <meta name="author" content="Ashish Kumar" />
+  <meta property="og:title" content="Ashish Kumar — Portfolio" />
+  <meta property="og:description" content="Entry-level Software Developer with projects in IoT and cloud." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg: #0b0f14;           /* background */
+      --fg: #e8f0fe;           /* text */
+      --muted: #a9b3c1;        /* secondary text */
+      --card: #121820;         /* cards */
+      --ink: #10151b;          /* darker */
+      --brand: #4da3ff;        /* accent */
+      --brand-2:#7ee787;       /* secondary accent */
+      --ring: rgba(77,163,255,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;color:var(--fg);background:linear-gradient(180deg,var(--bg),#0d131a 40%, #0b1016)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1000px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(11,15,20,.7);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid #0e1520;z-index:50}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:14px 0}
+    .nav .name{font-weight:700;letter-spacing:.3px}
+    .nav a.navlink{padding:6px 10px;border-radius:10px}
+    .nav a.navlink.active{background:var(--ink);outline:1px solid #1b2330}
+
+    .hero{padding:56px 0 28px}
+    .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+    .card{background:var(--card);border:1px solid #18202b;border-radius:18px;padding:20px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+    .tag{display:inline-block;padding:4px 10px;margin:4px 6px 0 0;border-radius:999px;background:#0e1621;border:1px solid #1b2635;color:#c7d2e4;font-size:13px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid #1b2635;background:linear-gradient(180deg,#121a25,#0e1520);color:var(--fg)}
+    .btn:hover{transform:translateY(-1px);transition:.2s}
+    .btn.primary{background:linear-gradient(180deg,#1a2a3e,#132033);border-color:#22314a}
+    .btn.ghost{background:transparent}
+
+    section{padding:28px 0}
+    h1{font-size:38px;line-height:1.1;margin:0 0 8px}
+    h2{font-size:26px;margin:0 0 14px}
+    h3{font-size:20px;margin:0 0 8px}
+    p{margin:10px 0}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+    .proj{display:flex;flex-direction:column;gap:10px}
+    .proj h3{margin-bottom:0}
+    .proj .stack{margin-top:6px}
+
+    .timeline{border-left:2px solid #1f2a3a;margin-left:10px;padding-left:16px}
+    .timeline .item{margin:14px 0}
+    .list-plain{margin:0;padding-left:18px}
+
+    footer{padding:22px 0;border-top:1px solid #0e1520;color:var(--muted)}
+
+    /* Small screens */
+    @media (max-width: 800px){
+      .hero .grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 560px){
+      .grid-2,.grid-3{grid-template-columns:1fr}
+      h1{font-size:32px}
+    }
+  </style>
+  <script>
+    // Highlight active nav on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.navlink');
+      const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+      const onScroll = () => {
+        const y = window.scrollY + 120;
+        let idx = 0;
+        sections.forEach((s,i)=>{ if (s && s.offsetTop <= y) idx = i; });
+        links.forEach(l=>l.classList.remove('active'));
+        links[idx]?.classList.add('active');
+      };
+      document.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ashish Kumar",
+    "jobTitle": "Software Developer",
+    "address": {"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"},
+    "email": "mailto:ashishkumar04102003@gmail.com",
+    "url": "https://github.com/ashishkumar",
+    "sameAs": [
+      "https://www.linkedin.com/in/ashish-kumar-17012525a/",
+      "https://github.com/ashishkumar"
+    ]
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="name">Ashish Kumar</div>
+    <nav style="display:flex;gap:6px;flex-wrap:wrap">
+      <a class="navlink" href="#about">About</a>
+      <a class="navlink" href="#skills">Skills</a>
+      <a class="navlink" href="#projects">Projects</a>
+      <a class="navlink" href="#experience">Experience</a>
+      <a class="navlink" href="#education">Education</a>
+      <a class="navlink" href="#certs">Certifications</a>
+      <a class="navlink" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero" id="top">
+    <div class="grid">
+      <div class="card">
+        <h1>Hi, I'm Ashish 👋</h1>
+        <p style="color:var(--muted);margin-top:6px">Entry‑level <strong>Software Developer</strong> with hands‑on work in cloud, real‑time apps and REST APIs. I enjoy building scalable, reliable systems and learning new stacks.</p>
+        <div style="margin:16px 0;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn ghost" href="#contact">Contact me</a>
+          <a class="btn" href="resume.pdf" download>Download résumé</a>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;color:var(--muted)">
+          <span>📍 Hyderabad, Telangana, India</span>
+          <a href="mailto:ashishkumar04102003@gmail.com">✉️ Email</a>
+          <a href="https://www.linkedin.com/in/ashish-kumar-17012525a/">🔗 LinkedIn</a>
+          <a href="https://github.com/ashishkumar">💻 GitHub</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0">Quick Tech Snapshot</h2>
+        <div>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C</span>
+          <span class="tag">SQL</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">REST API</span>
+          <span class="tag">AWS (EC2, S3, IAM, VPC)</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Git</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Arduino IDE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="card">
+      <p>I'm a developer with a strong grasp of <strong>OOP</strong>, <strong>SOLID</strong> principles and <strong>Agile</strong> practices. I've built cloud‑backed applications and IoT systems, and I'm currently excited about <strong>Azure</strong>, <strong>Microservices</strong>, <strong>React</strong>, and mobile development (MAUI/Android/iOS).</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Programming</h3>
+        <p>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C</span>
+          <span class="tag">SQL</span>
+        </p>
+      </div>
+      <div class="card">
+        <h3>Web & Backend</h3>
+        <p>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">REST API</span>
+        </p>
+      </div>
+      <div class="card">
+        <h3>Cloud & Tools</h3>
+        <p>
+          <span class="tag">AWS (EC2, S3, IAM, VPC)</span>
+          <span class="tag">Google Cloud Platform</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Git</span>
+          <span class="tag">Arduino IDE</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">OpenCV</span>
+        </p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Soft Skills</h3>
+      <p>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Analytical Thinking</span>
+        <span class="tag">Team Collaboration</span>
+        <span class="tag">Cloud Integration</span>
+        <span class="tag">Communication</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid-2">
+      <article class="card proj">
+        <div>
+          <h3>WiFi‑Enabled Smart Door Lock System</h3>
+          <p>Real‑time security app using ESP32‑CAM and Telegram Bot API for remote door access with secure authentication and 24/7 monitoring.</p>
+        </div>
+        <div class="stack">
+          <span class="tag">ESP32‑CAM</span>
+          <span class="tag">Arduino IDE</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Cloud Integration</span>
+          <span class="tag">Telegram Bot API</span>
+        </div>
+        <p>
+          <a href="https://github.com/ashishkumar" target="_blank">Code / details ↗</a>
+        </p>
+      </article>
+      <article class="card proj">
+        <div>
+          <h3>WiFi‑Enabled Digital Notice Board</h3>
+          <p>Dynamic messaging platform to display real‑time updates using MQTT protocol and P10 LED display; eliminated manual updates for institutions.</p>
+        </div>
+        <div class="stack">
+          <span class="tag">ESP8266</span>
+          <span class="tag">Python</span>
+          <span class="tag">MQTT</span>
+          <span class="tag">Arduino IDE</span>
+        </div>
+        <p>
+          <a href="https://github.com/ashishkumar" target="_blank">Code / details ↗</a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience (Internships)</h2>
+    <div class="card timeline">
+      <div class="item">
+        <h3>Salesforce Developer Virtual Internship</h3>
+        <div style="color:var(--muted)">Jul 2024 – Aug 2024</div>
+        <p>Mastered Apex programming, Process Automation, and Lightning Web Components. Earned Apex Specialist and Developer Super Set Superbadges.</p>
+      </div>
+      <div class="item">
+        <h3>AWS Cloud Virtual Internship (AICTE‑AWS Academy)</h3>
+        <div style="color:var(--muted)">Jan 2024 – Mar 2024</div>
+        <p>Worked with EC2, S3, IAM, and VPC; developed DevOps capabilities using cloud automation practices.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>Vidya Jyothi Institute of Technology, Hyderabad</h3>
+      <p>B.Tech in Electronics and Communication Engineering — CGPA 8.36/10 (2021–2025)</p>
+      <h3>Chaitanya Junior College, Telangana</h3>
+      <p>Intermediate (MPC) — 952/1000 (2019–2021)</p>
+      <h3>Navodaya High School, Telangana</h3>
+      <p>SSC — CGPA 8.8/10 (2019)</p>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications</h2>
+    <div class="card">
+      <ul class="list-plain">
+        <li>Google Cloud Jam Sessions & Generative AI — GDSC</li>
+        <li>AWS Cloud Virtual Internship — AICTE‑AWS Academy</li>
+        <li>SQL Bootcamp — Udemy</li>
+        <li>Data Structures with Python — Udemy</li>
+        <li>C Programming (CLA) — Cisco Networking Academy</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Best way to reach me: <a href="mailto:ashishkumar04102003@gmail.com">ashishkumar04102003@gmail.com</a></p>
+      <p>Also on <a href="https://www.linkedin.com/in/ashish-kumar-17012525a/">LinkedIn</a> and <a href="https://github.com/ashishkumar">GitHub</a>.</p>
+      <p style="color:var(--muted);font-size:14px">(Optional) Add your phone number here if you’re comfortable sharing it publicly.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="y"></span> Ashish Kumar — Built with hand‑crafted HTML & CSS
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
 
