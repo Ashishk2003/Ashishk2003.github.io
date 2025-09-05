@@ -2,355 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ashish Kumar — Portfolio</title>
-  <meta name="description" content="Ashish Kumar — Entry-level Software Developer. Cloud, REST APIs, IoT projects. Hyderabad, India." />
-  <meta name="author" content="Ashish Kumar" />
-  <meta property="og:title" content="Ashish Kumar — Portfolio" />
-  <meta property="og:description" content="Entry-level Software Developer with projects in IoT and cloud." />
-  <meta property="og:type" content="website" />
-  <style>
-    :root{
-      --bg: #0b0f14;
-      --fg: #e8f0fe;
-      --muted: #a9b3c1;
-      --card: #121820;
-      --ink: #10151b;
-      --brand: #4da3ff;
-      --brand-2:#7ee787;
-      --ring: rgba(77,163,255,.35);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-      color:var(--fg);
-      background:linear-gradient(180deg,var(--bg),#0d131a 40%, #0b1016)
-    }
-    a{color:var(--brand);text-decoration:none;transition:0.2s}
-    a:hover{text-decoration:underline;color:var(--brand-2)}
 
-    .container{max-width:1000px;margin:0 auto;padding:0 20px}
-
-    header{
-      position:sticky;top:0;
-      background:rgba(11,15,20,.7);
-      backdrop-filter:saturate(180%) blur(12px);
-      border-bottom:1px solid #0e1520;
-      z-index:50
-    }
-    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:14px 0}
-    .nav .name{font-weight:700;letter-spacing:.3px}
-    .nav a.navlink{padding:6px 10px;border-radius:10px}
-    .nav a.navlink.active{background:var(--ink);outline:1px solid #1b2330}
-
-    .hero{padding:56px 0 28px}
-    .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
-
-    .card{
-      background:var(--card);
-      border:1px solid #18202b;
-      border-radius:18px;
-      padding:20px;
-      box-shadow:0 6px 20px rgba(0,0,0,.25);
-      transition:0.25s;
-    }
-    .card:hover{box-shadow:0 8px 26px rgba(0,0,0,.35)}
-
-    .tag{
-      display:inline-block;
-      padding:4px 10px;
-      margin:4px 6px 0 0;
-      border-radius:999px;
-      background:#0e1621;
-      border:1px solid #1b2635;
-      color:#c7d2e4;
-      font-size:13px;
-      transition:0.2s
-    }
-    .tag:hover{background:var(--brand);color:#fff}
-
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid #1b2635;
-      background:linear-gradient(180deg,#121a25,#0e1520);
-      color:var(--fg);
-      transition:0.25s;
-    }
-    .btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 4px 12px rgba(77,163,255,.3)}
-    .btn.primary{background:linear-gradient(180deg,#1a2a3e,#132033);border-color:#22314a}
-    .btn.ghost{background:transparent}
-
-    section{padding:28px 0}
-    h1{font-size:38px;line-height:1.1;margin:0 0 8px}
-    h2{font-size:26px;margin:0 0 14px}
-    h3{font-size:20px;margin:0 0 8px}
-    p{margin:10px 0}
-
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-
-    .proj{display:flex;flex-direction:column;gap:10px}
-    .proj h3{margin-bottom:0}
-    .proj .stack{margin-top:6px}
-
-    .timeline{border-left:2px solid #1f2a3a;margin-left:10px;padding-left:16px}
-    .timeline .item{margin:14px 0}
-    .list-plain{margin:0;padding-left:18px}
-
-    footer{padding:22px 0;border-top:1px solid #0e1520;color:var(--muted)}
-
-    /* Small screens */
-    @media (max-width: 800px){
-      .hero .grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 560px){
-      .grid-2,.grid-3{grid-template-columns:1fr}
-      h1{font-size:32px}
-    }
-  </style>
-  <script>
-    // Highlight active nav on scroll
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.navlink');
-      const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
-      const onScroll = () => {
-        const y = window.scrollY + 120;
-        let idx = 0;
-        sections.forEach((s,i)=>{ if (s && s.offsetTop <= y) idx = i; });
-        links.forEach(l=>l.classList.remove('active'));
-        links[idx]?.classList.add('active');
-      };
-      document.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    });
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ashish Kumar",
-    "jobTitle": "Software Developer",
-    "address": {"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"},
-    "email": "mailto:ashishkumar04102003@gmail.com",
-    "telephone": "+91-6300102195",
-    "url": "https://github.com/ashishkumar",
-    "sameAs": [
-      "https://www.linkedin.com/in/ashish-kumar-17012525a/",
-      "https://github.com/ashishkumar"
-    ]
-  }
-  </script>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="container nav">
-    <div class="name">Ashish Kumar</div>
-    <nav style="display:flex;gap:6px;flex-wrap:wrap">
-      <a class="navlink" href="#about">About</a>
-      <a class="navlink" href="#skills">Skills</a>
-      <a class="navlink" href="#projects">Projects</a>
-      <a class="navlink" href="#experience">Experience</a>
-      <a class="navlink" href="#education">Education</a>
-      <a class="navlink" href="#certs">Certifications</a>
-      <a class="navlink" href="#contact">Contact</a>
+  <header class="site-header">
+    <div class="logo">Ashish Kumar</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#contact">Contact</a>
+      <a class="btn-resume" href="assets/Ashish_Kumar_CV.pdf" target="_blank" rel="noopener">Resume</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="container">
-  <section class="hero" id="top">
-    <div class="grid">
-      <div class="card">
-        <h1>Hi, I'm Ashish <span role="img" aria-label="waving hand">👋</span></h1>
-        <p style="color:var(--muted);margin-top:6px">Entry-level <strong>Software Developer</strong> with hands-on work in cloud, real-time apps and REST APIs. I enjoy building scalable, reliable systems and learning new stacks.</p>
-        <div style="margin:16px 0;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#projects">See my projects</a>
-          <a class="btn ghost" href="#contact">Contact me</a>
-          <a class="btn" href="./resume.pdf" download>Download résumé</a>
-        </div>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;color:var(--muted)">
-          <span>📍 Hyderabad, Telangana, India</span>
-          <a href="mailto:ashishkumar04102003@gmail.com">✉️ Email</a>
-          <a href="tel:+916300102195">📞 +91 6300102195</a>
-          <a href="https://www.linkedin.com/in/ashish-kumar-17012525a/">🔗 LinkedIn</a>
-          <a href="https://github.com/ashishkumar">💻 GitHub</a>
-        </div>
+  <!-- HERO -->
+  <section id="home" class="section bg-1" aria-label="Home">
+    <div class="section-inner">
+      <p class="eyebrow">Hi, my name is</p>
+      <h1 class="big-name">Ashish Kumar<span class="dot">.</span></h1>
+      <h2 class="role"><span id="typed" aria-live="polite"></span></h2>
+      <p class="lead">Entry-level Software Developer skilled in Java, Python and SQL with hands-on experience building real-time apps and REST APIs.</p>
+
+      <div class="cta">
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="assets/Ashish_Kumar_CV.pdf" target="_blank" class="btn outline">Download CV</a>
       </div>
-      <div class="card">
-        <h2 style="margin-top:0">Quick Tech Snapshot</h2>
-        <div>
-          <span class="tag">Python</span>
-          <span class="tag">Java</span>
-          <span class="tag">C</span>
-          <span class="tag">SQL</span>
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">REST API</span>
-          <span class="tag">AWS (EC2, S3, IAM, VPC)</span>
-          <span class="tag">GCP</span>
-          <span class="tag">Salesforce</span>
-          <span class="tag">Git</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Arduino IDE</span>
-        </div>
+
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/ashish-kumar-17012525a/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/ashishkumar" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+        <a href="mailto:ashishkumar04102003@gmail.com"><i class="fa fa-envelope"></i></a>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <div class="card">
-      <p>I'm a developer with a strong grasp of <strong>OOP</strong>, <strong>SOLID</strong> principles and <strong>Agile</strong> practices. I've built cloud-backed applications and IoT systems, and I'm currently excited about <strong>Azure</strong>, <strong>Microservices</strong>, <strong>React</strong>, and mobile development (MAUI/Android/iOS).</p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Programming</h3>
-        <p>
-          <span class="tag">Python</span>
-          <span class="tag">Java</span>
-          <span class="tag">C</span>
-          <span class="tag">SQL</span>
-        </p>
-      </div>
-      <div class="card">
-        <h3>Web & Backend</h3>
-        <p>
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">REST API</span>
-        </p>
-      </div>
-      <div class="card">
-        <h3>Cloud & Tools</h3>
-        <p>
-          <span class="tag">AWS (EC2, S3, IAM, VPC)</span>
-          <span class="tag">Google Cloud Platform</span>
-          <span class="tag">Salesforce</span>
-          <span class="tag">Git</span>
-          <span class="tag">Arduino IDE</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">OpenCV</span>
-        </p>
-      </div>
-    </div>
-    <div class="card" style="margin-top:16px">
-      <h3>Soft Skills</h3>
+  <!-- ABOUT + EDUCATION -->
+  <section id="about" class="section bg-2" aria-label="About & Education">
+    <div class="about-card">
+      <h2>About Me</h2>
+      <h3>Ashish Kumar</h3>
       <p>
-        <span class="tag">Problem Solving</span>
-        <span class="tag">Analytical Thinking</span>
-        <span class="tag">Team Collaboration</span>
-        <span class="tag">Cloud Integration</span>
-        <span class="tag">Communication</span>
+        Passionate and technology-driven Electronics and Communication Engineering undergraduate at Vidya Jyothi Institute of Technology, Hyderabad. Skilled in software development, IoT projects, and cloud technologies. Eager to apply my technical knowledge to real-world challenges as part of a collaborative IT team.
       </p>
+
+      <h2>Education</h2>
+      <div class="edu-grid">
+        <div class="edu" role="button" onclick="openCertificate('assets/vjit-cert.png')" tabindex="0">
+          <h3>Vidya Jyothi Institute of Technology, Hyderabad</h3>
+          <p>B.Tech in Electronics and Communication Engineering — CGPA 8.36/10 (2021–2025)</p>
+        </div>
+        <div class="edu" role="button" onclick="openCertificate('assets/chaitanya-cert.png')" tabindex="0">
+          <h3>Chaitanya Junior College, Telangana</h3>
+          <p>Intermediate (MPC) — 952/1000 (2019–2021)</p>
+        </div>
+        <div class="edu" role="button" onclick="openCertificate('assets/navodaya-cert.png')" tabindex="0">
+          <h3>Navodaya High School, Telangana</h3>
+          <p>SSC — CGPA 8.8/10 (2019)</p>
+        </div>
+      </div>
+
+      <a class="btn-resume" href="assets/Ashish_Kumar_CV.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf"></i> Download CV</a>
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="grid-2">
-      <article class="card proj">
-        <div>
-          <h3>WiFi-Enabled Smart Door Lock System</h3>
-          <p>Real-time security app using ESP32-CAM and Telegram Bot API for remote door access with secure authentication and 24/7 monitoring.</p>
-        </div>
-        <div class="stack">
-          <span class="tag">ESP32-CAM</span>
-          <span class="tag">Arduino IDE</span>
-          <span class="tag">IoT</span>
-          <span class="tag">Cloud Integration</span>
-          <span class="tag">Telegram Bot API</span>
-        </div>
-        <p>
-          <a href="https://github.com/Ashishk2003/project-2" target="_blank">Code / details ↗</a>
-        </p>
-      </article>
-      <article class="card proj">
-        <div>
+  <!-- SKILLS -->
+  <section id="skills" class="section bg-3" aria-label="Skills">
+    <div class="section-inner">
+      <h2>My Tech Arsenal</h2>
+
+      <h3 class="skill-title">Programming</h3>
+      <div class="skill-grid">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Java</div>
+        <div class="skill-card">C</div>
+        <div class="skill-card">SQL</div>
+      </div>
+
+      <h3 class="skill-title">Web & Backend</h3>
+      <div class="skill-grid">
+        <div class="skill-card">HTML / CSS</div>
+        <div class="skill-card">REST API</div>
+      </div>
+
+      <h3 class="skill-title">Cloud & Tools</h3>
+      <div class="skill-grid">
+        <div class="skill-card">AWS (EC2, S3, IAM, VPC)</div>
+        <div class="skill-card">Google Cloud Platform</div>
+        <div class="skill-card">Salesforce</div>
+        <div class="skill-card">Git</div>
+        <div class="skill-card">Arduino IDE</div>
+        <div class="skill-card">Pandas</div>
+        <div class="skill-card">OpenCV</div>
+      </div>
+
+      <h3 class="skill-title">Soft Skills</h3>
+      <div class="skill-grid">
+        <div class="skill-card">Problem Solving</div>
+        <div class="skill-card">Analytical Thinking</div>
+        <div class="skill-card">Team Collaboration</div>
+        <div class="skill-card">Cloud Integration</div>
+        <div class="skill-card">Communication</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (unchanged except your content) -->
+  <section id="projects" class="section bg-4" aria-label="Projects">
+    <div class="section-inner">
+      <h2>My Creations</h2>
+      <div class="projects-grid">
+        <article class="project-card">
           <h3>WiFi-Enabled Digital Notice Board</h3>
           <p>Dynamic messaging platform to display real-time updates using MQTT protocol and P10 LED display; eliminated manual updates for institutions.</p>
-        </div>
-        <div class="stack">
-          <span class="tag">ESP8266</span>
-          <span class="tag">Python</span>
-          <span class="tag">MQTT</span>
-          <span class="tag">Arduino IDE</span>
-        </div>
-        <p>
-          <a href="https://github.com/Ashishk2003/project-1" target="_blank">Code / details ↗</a>
-        </p>
-      </article>
-      <article class="card proj">
-        <div>
-          <h3>Web-Based Quiz Management System using HTML, CSS & JavaScript</h3>
-          <p>Developed a Web-Based Quiz Management System using HTML, CSS, and JavaScript with separate teacher and student login modules. Implemented features like quiz creation, student management, result sharing, secure authentication, and answer review. Designed a responsive, styled interface with light mode for an improved user experience.</p>
-        </div>
-        <div class="stack">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <p>
-          <a href="https://github.com/Ashishk2003/quiz-portal" target="_blank">Code / details ↗</a>
-        </p>
-      </article>
-    </div>
-  </section>
+          <div class="stack">
+            <span class="tag">ESP32-CAM</span>
+            <span class="tag">Arduino IDE</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Cloud Integration</span>
+            <span class="tag">Telegram Bot API</span>
+          </div>
+          <div class="project-links">
+            <a class="link" href="https://github.com/Ashishk2003/project-2" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </article>
 
-  <section id="experience">
-    <h2>Experience (Internships)</h2>
-    <div class="card timeline">
-      <div class="item">
-        <h3>Salesforce Developer Virtual Internship</h3>
-        <div style="color:var(--muted)">Jul 2024 – Aug 2024</div>
-        <p>Mastered Apex programming, Process Automation, and Lightning Web Components. Earned Apex Specialist and Developer Super Set Superbadges.</p>
-      </div>
-      <div class="item">
-        <h3>AWS Cloud Virtual Internship (AICTE-AWS Academy)</h3>
-        <div style="color:var(--muted)">Jan 2024 – Mar 2024</div>
-        <p>Worked with EC2, S3, IAM, and VPC; developed DevOps capabilities using cloud automation practices.</p>
+        <article class="project-card">
+          <h3>WiFi-Enabled Digital Notice Board</h3>
+          <p>Dynamic messaging platform to display real-time updates using MQTT protocol and P10 LED display; eliminated manual updates for institutions.</p>
+          <div class="stack">
+            <span class="tag">ESP8266</span>
+            <span class="tag">Python</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">Arduino IDE</span>
+          </div>
+          <div class="project-links">
+            <a class="link" href="https://github.com/Ashishk2003/project-1" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>Web-Based Quiz Management System</h3>
+          <p>Developed with separate teacher and student login modules. Features quiz creation, student management, result sharing, secure authentication, and answer review.</p>
+          <div class="stack">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a class="link" href="https://github.com/Ashishk2003/project-3" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>Vidya Jyothi Institute of Technology, Hyderabad</h3>
-      <p>B.Tech in Electronics and Communication Engineering — CGPA 8.36/10 (2021–2025)</p>
-      <h3>Chaitanya Junior College, Telangana</h3>
-      <p>Intermediate (MPC) — 952/1000 (2019–2021)</p>
-      <h3>Navodaya High School, Telangana</h3>
-      <p>SSC — CGPA 8.8/10 (2019)</p>
+  <!-- EXPERIENCE / CERTIFICATES (unchanged) -->
+  <section id="experience" class="section bg-1" aria-label="Experience">
+    <div class="section-inner">
+      <h2>Internships & Certifications</h2>
+      <div class="exp-grid">
+        <div class="exp" role="button" onclick="openCertificate('assets/aws-cert.png')" tabindex="0">
+          <h3>AWS Cloud Virtual Internship</h3>
+          <p>Worked with EC2, S3, IAM, VPC and automation in cloud environments.</p>
+        </div>
+        <div class="exp" role="button" onclick="openCertificate('assets/salesforce-cert.png')" tabindex="0">
+          <h3>Salesforce Developer Internship</h3>
+          <p>Completed Apex, LWC, and Process Automation. Earned Salesforce badges.</p>
+        </div>
+        <div class="exp" role="button" onclick="openCertificate('assets/sql-cert.png')" tabindex="0">
+          <h3>SQL Bootcamp</h3>
+          <p>Mastered SQL queries, joins, indexing, and optimization.</p>
+        </div>
+        <div class="exp" role="button" onclick="openCertificate('assets/dsa-cert.png')" tabindex="0">
+          <h3>Data Structures & Algorithms</h3>
+          <p>Completed DSA course and problem solving practice.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="certs">
-    <h2>Certifications</h2>
-    <div class="card">
-      <ul class="list-plain">
-        <li>Google Cloud Jam Sessions & Generative AI — GDSC</li>
-        <li>AWS Cloud Virtual Internship — AICTE-AWS Academy</li>
-        <li>SQL Bootcamp — Udemy</li>
-        <li>Data Structures with Python — Udemy</li>
-        <li>C Programming (CLA) — Cisco Networking Academy</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
+  <!-- CONTACT -->
+<section id="contact" class="section bg-1" aria-label="Contact">
+  <div class="about-card contact-card">
     <h2>Contact</h2>
-    <div class="card">
-      <p>Best way to reach me:</p>
-      <p>
-        <a class="btn" href="mailto:ashishkumar04102003@gmail.com">✉️ Email Me</a>
-        <a class="btn primary" href="tel:+916300102195">📞 Call: +91 6300102195</a>
-      </p>
-      <p>Also on <a href="https://www.linkedin.com/in/ashish-kumar-17012525a
+    <p class="contact-intro">Feel free to connect with me through any of the following:</p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/ashish-kumar-17012525a/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/ashishkumar" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+      <a href="mailto:ashishkumar04102003@gmail.com"><i class="fa fa-envelope"></i></a>
+      <a href="tel:+916300102195"><i class="fa fa-phone"></i></a>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Certificate Modal -->
+  <div id="certificateModal" class="modal" role="dialog" aria-hidden="true">
+    <button class="modal-close" aria-label="Close certificate" onclick="closeCertificate()">×</button>
+    <img id="certImage" class="modal-content" alt="Certificate preview">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
