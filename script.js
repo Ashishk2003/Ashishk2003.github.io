@@ -158,6 +158,29 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+  function openCertificate(filePath) {
+  const modal = document.getElementById("certificateModal");
+  const certImg = document.getElementById("certImage");
+
+  // Check file type
+  if (filePath.endsWith(".pdf")) {
+    window.open(filePath, "_blank"); // open PDFs in a new tab
+    return;
+  }
+
+  // For images
+  modal.style.display = "flex";
+  certImg.src = filePath;
+}
+
+function closeCertificate() {
+  const modal = document.getElementById("certificateModal");
+  const certImg = document.getElementById("certImage");
+  modal.style.display = "none";
+  certImg.src = "";
+}
+
 
 }); // DOMContentLoaded
+
 
