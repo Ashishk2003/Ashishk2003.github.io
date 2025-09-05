@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
      Background images per section
   ------------------------------ */
   const bgMap = [
-    { sel: '#home', img: 'assets/bg-hero.jpg' },
-    { sel: '#about', img: 'assets/bg-about.jpg' },
-    { sel: '#skills', img: 'assets/bg-skills.jpg' },
-    { sel: '#projects', img: 'assets/bg-projects.jpg' },
-    { sel: '#experience', img: 'assets/bg-experience.jpg' },
-    { sel: '#contact', img: 'assets/download.jpeg' }
+    { sel: '#home', img: 'bg-hero.jpg' },
+    { sel: '#about', img: 'bg-about.jpg' },
+    { sel: '#skills', img: 'bg-skills.jpg' },
+    { sel: '#projects', img: 'bg-projects.jpg' },
+    { sel: '#experience', img: 'bg-experience.jpg' },
+    { sel: '#contact', img: 'download.jpeg' }
   ];
   bgMap.forEach(item => {
     const el = document.querySelector(item.sel);
@@ -160,3 +160,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 }); // DOMContentLoaded
+
