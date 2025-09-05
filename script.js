@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const typedEl = document.getElementById('typed');
   const roles = ['Cloud & IoT Developer', 'Full-Stack Developer', 'Problem Solver'];
   let rIndex = 0, cIndex = 0, deleting = false;
+
   function tick() {
     if (!typedEl) return;
     const full = roles[rIndex];
@@ -117,28 +118,37 @@ document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('certificateModal');
   const certImg = document.getElementById('certImage');
 
-  window.openCertificate = function (imgSrc) {
+  window.openCertificate = function (filePath) {
     if (!modal || !certImg) return;
-    certImg.src = imgSrc;
+
+    // If it's a PDF → open in new tab
+    if (filePath.toLowerCase().endsWith(".pdf")) {
+      window.open(filePath, "_blank");
+      return;
+    }
+
+    // Otherwise → show as image in modal
+    certImg.src = filePath;
+    modal.style.display = "flex";
     modal.setAttribute('aria-hidden', 'false');
-    modal.style.display = 'flex';
-    // focus for accessibility
     modal.focus();
   };
+
   window.closeCertificate = function () {
-    if (!modal) return;
+    if (!modal || !certImg) return;
+    modal.style.display = "none";
     modal.setAttribute('aria-hidden', 'true');
-    modal.style.display = 'none';
-    certImg.src = '';
+    certImg.src = "";
   };
 
-  // close when clicking background
+  // Close when clicking background
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) closeCertificate();
     });
   }
-  // close with Escape
+
+  // Close with Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeCertificate();
   });
@@ -150,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
     el.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         const onclick = el.getAttribute('onclick');
-        // fallback: if onclick present with path
         if (onclick) {
           const match = onclick.match(/openCertificate\(['"](.+?)['"]\)/);
           if (match) openCertificate(match[1]);
@@ -158,29 +167,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  function openCertificate(filePath) {
-  const modal = document.getElementById("certificateModal");
-  const certImg = document.getElementById("certImage");
-
-  // Check file type
-  if (filePath.endsWith(".pdf")) {
-    window.open(filePath, "_blank"); // open PDFs in a new tab
-    return;
-  }
-
-  // For images
-  modal.style.display = "flex";
-  certImg.src = filePath;
-}
-
-function closeCertificate() {
-  const modal = document.getElementById("certificateModal");
-  const certImg = document.getElementById("certImage");
-  modal.style.display = "none";
-  certImg.src = "";
-}
-
 
 }); // DOMContentLoaded
-
-
