@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
      Typing effect for role
   ------------------------------ */
   const typedEl = document.getElementById('typed');
-  const roles = ['Cloud & IoT Developer', 'Full-Stack Developer', 'Problem Solver'];
+  const roles = ['Entry-Level Software Engineer', 'Java | Python | SQL | C', 'Problem Solver | Team Player | Learner'];
   let rIndex = 0, cIndex = 0, deleting = false;
 
   function tick() {
@@ -169,3 +169,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 }); // DOMContentLoaded
+
